@@ -1,0 +1,285 @@
+/* ============================================================
+   DK Goldengate Ventures — Colors & Type Foundation
+   ============================================================
+   The palette is "lender with an edge": deep navy as the
+   institutional anchor, sky/teal blue as the modern accent,
+   silver gray as the neutral, and a warm goldenrod orange used
+   sparingly as a spot color (a nod to "Goldengate").
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap");
+
+/* ---------- Brand fonts (self-hosted) ----------
+   PT Serif — display face. Lends editorial gravitas to headlines
+   and hero figures; the slab-ish brackets feel institutional, not
+   stuffy. Static weights (400 / 700 only).
+
+   DM Sans — body face. Neutral geometric sans with a friendly
+   tone. Variable across opsz 9–40 and wght 100–1000.
+
+   Inter (italic only) — used as the italic companion inside body
+   copy, since DM Sans's italic feels heavy at small sizes. */
+
+@font-face {
+  font-family: "PT Serif";
+  src: url("fonts/PTSerif-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PT Serif";
+  src: url("fonts/PTSerif-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PT Serif";
+  src: url("fonts/PTSerif-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PT Serif";
+  src: url("fonts/PTSerif-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("fonts/DMSans-VariableFont_opsz_wght.ttf") format("truetype-variations");
+  font-weight: 100 1000;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "DM Sans";
+  src: url("fonts/DMSans-Italic-VariableFont_opsz_wght.ttf") format("truetype-variations");
+  font-weight: 100 1000;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Inter Italic — paired companion for italic emphasis in body */
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Italic-VariableFont_opsz_wght.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+:root {
+  /* ---------- Brand colors ---------- */
+
+  /* Navy — the foundation. Used for primary surfaces, headers,
+     icon containers and deep backgrounds. */
+  --navy-900: #0A1A33;   /* deepest, near-black navy */
+  --navy-800: #0F2545;   /* primary brand navy (icon tiles, hero) */
+  --navy-700: #15315A;
+  --navy-600: #1E4076;
+  --navy-500: #2A5694;
+
+  /* Sky / Teal — the accent. The luminous cyan-teal from the
+     logo. Used for primary actions, links, highlights, charts. */
+  --sky-300: #BFE7F2;    /* tint, surfaces */
+  --sky-400: #7FCFE3;    /* logo highlight */
+  --sky-500: #4FB8D1;    /* primary accent */
+  --sky-600: #2A9BB8;    /* hover / pressed accent */
+  --sky-700: #1B7A93;    /* deep teal */
+
+  /* Silver / Gray — the neutral. Cool-leaning, not warm. */
+  --silver-50:  #F6F8FA;
+  --silver-100: #ECEFF3;
+  --silver-200: #DCE2EA;
+  --silver-300: #C2CAD4;
+  --silver-400: #97A2AF;
+  --silver-500: #6B7785;
+  --silver-600: #4B5563;
+  --silver-700: #2F3742;
+  --silver-800: #1B2230;
+
+  /* Goldengate Orange — the spot color. Used SPARINGLY for
+     emphasis, "deal closed" moments, key CTAs, highlights. */
+  --gold-300: #FBB48A;
+  --gold-400: #F58A55;
+  --gold-500: #F06A2A;   /* signature spot color */
+  --gold-600: #C9521A;
+
+  /* ---------- Semantic surfaces ---------- */
+  --bg-app:       var(--silver-50);
+  --bg-surface:   #FFFFFF;
+  --bg-raised:    #FFFFFF;
+  --bg-inverse:   var(--navy-800);
+  --bg-tinted:    #EAF4F8;        /* sky tint for cards/banners */
+  --bg-overlay:   rgba(10, 26, 51, 0.55);
+
+  /* ---------- Foreground / text ----------
+     Body text is navy-derived, NOT silver. Silver 300/400 are
+     reserved for accents (dividers, hint text, disabled states,
+     icon strokes on light surfaces). Silver 700 is only used as
+     a black substitute on rare occasions. */
+  --fg-1:         var(--navy-900);   /* primary headings + body */
+  --fg-2:         var(--navy-700);   /* body / default text */
+  --fg-3:         var(--silver-500); /* secondary / meta */
+  --fg-4:         var(--silver-400); /* hint / placeholder accent */
+  --fg-5:         var(--silver-300); /* faint accent / disabled */
+  --fg-on-navy:   #FFFFFF;
+  --fg-on-sky:    var(--navy-900);
+  --fg-link:      var(--sky-600);
+  --fg-link-hover:var(--sky-700);
+
+  /* ---------- Borders ---------- */
+  --border-1:     var(--silver-200);  /* default hairline */
+  --border-2:     var(--silver-300);  /* stronger */
+  --border-focus: var(--sky-500);
+  --border-on-navy: rgba(255, 255, 255, 0.12);
+
+  /* ---------- Status / semantic ---------- */
+  --success-500: #2BA56B;
+  --success-50:  #E5F6EE;
+  --warning-500: var(--gold-500);
+  --warning-50:  #FBEDD9;
+  --danger-500:  #D24545;
+  --danger-50:   #FBE4E4;
+  --info-500:    var(--sky-500);
+  --info-50:     #E2F2F8;
+
+  /* ---------- Shadow / elevation ---------- */
+  --shadow-xs: 0 1px 2px rgba(15, 37, 69, 0.06);
+  --shadow-sm: 0 2px 6px rgba(15, 37, 69, 0.08);
+  --shadow-md: 0 6px 18px rgba(15, 37, 69, 0.10), 0 2px 4px rgba(15, 37, 69, 0.06);
+  --shadow-lg: 0 18px 40px rgba(15, 37, 69, 0.14), 0 4px 10px rgba(15, 37, 69, 0.06);
+  --shadow-xl: 0 28px 64px rgba(10, 26, 51, 0.22);
+  --shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -1px 0 rgba(15, 37, 69, 0.04);
+
+  /* Glow used sparingly to echo the logo's chromed teal sheen */
+  --glow-sky:  0 0 0 4px rgba(79, 184, 209, 0.18);
+  --glow-gold: 0 0 0 4px rgba(229, 138, 46, 0.20);
+
+  /* ---------- Radii ---------- */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --radius-pill: 999px;
+
+  /* ---------- Spacing scale (4px base) ---------- */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* ---------- Type families ----------
+     PT Serif carries the brand voice in headlines and hero
+     numbers — editorial, considered, lender-grade. DM Sans is
+     the body workhorse for app rows and prose. */
+  --font-display: "PT Serif", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --font-sans:    "DM Sans", "Helvetica Neue", system-ui, sans-serif;
+  --font-mono:    "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* ---------- Type scale ---------- */
+  --fs-display:   56px;   /* hero numbers / marketing display */
+  --fs-h1:        40px;
+  --fs-h2:        30px;
+  --fs-h3:        22px;
+  --fs-h4:        18px;
+  --fs-body-lg:   17px;
+  --fs-body:      15px;
+  --fs-body-sm:   13px;
+  --fs-caption:   12px;
+  --fs-overline:  11px;
+
+  --lh-tight:     1.12;
+  --lh-snug:      1.25;
+  --lh-normal:    1.5;
+  --lh-loose:     1.65;
+
+  /* Serif headlines don't need negative tracking — keep near-0
+     so the bracketed forms breathe; sans gets the tight values. */
+  --ls-display:   -0.005em;
+  --ls-tight:     0;
+  --ls-normal:    0;
+  --ls-overline:  0.12em;
+
+  /* ---------- Motion ---------- */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:    120ms;
+  --dur-base:    200ms;
+  --dur-slow:    320ms;
+}
+
+/* ===================== Semantic element styles ===================== */
+
+html, body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  color: var(--fg-1);
+  background: var(--bg-app);
+  -webkit-font-smoothing: antialiased;
+  font-optical-sizing: auto;
+}
+
+h1, h2, h3, h4, .display {
+  font-family: var(--font-display);
+  color: var(--fg-1);
+  letter-spacing: var(--ls-tight);
+  font-weight: 700;          /* PT Serif tops out at 700 */
+  line-height: var(--lh-tight);
+  text-wrap: balance;
+}
+
+.display { font-size: var(--fs-display); letter-spacing: var(--ls-display); font-weight: 700; }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); font-weight: 700; }
+h4 { font-size: var(--fs-h4); font-weight: 700; line-height: var(--lh-snug); }
+
+p, .body { font-size: var(--fs-body); line-height: var(--lh-normal); color: var(--fg-2); }
+.body-lg { font-size: var(--fs-body-lg); line-height: var(--lh-loose); }
+.body-sm { font-size: var(--fs-body-sm); }
+
+.caption {
+  font-size: var(--fs-caption);
+  color: var(--fg-3);
+  line-height: var(--lh-snug);
+}
+
+.overline {
+  font-family: var(--font-sans);   /* sans for overlines — caps in serif feel dated */
+  font-size: var(--fs-overline);
+  letter-spacing: var(--ls-overline);
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--fg-3);
+}
+
+code, kbd, samp, pre, .mono {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+a {
+  color: var(--fg-link);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+a:hover { color: var(--fg-link-hover); text-decoration: underline; text-underline-offset: 3px; }
+
+::selection { background: var(--sky-300); color: var(--navy-900); }
