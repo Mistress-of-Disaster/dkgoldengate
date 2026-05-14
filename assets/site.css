@@ -141,6 +141,19 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 1px;
 }
 
+/* "Get in touch" CTA in nav switches to solid sky-blue on light nav */
+.nav:not(.is-dark) .btn-on-dark {
+  background: var(--sky-500);
+  color: var(--navy-900);
+  border-color: transparent;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, var(--shadow-sm);
+}
+.nav:not(.is-dark) .btn-on-dark:hover {
+  background: var(--sky-600);
+  color: #fff;
+  border-color: transparent;
+}
+
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-flex;
