@@ -399,6 +399,7 @@
         s.id = `proj-${id}-g${i}`;
         s.setAttribute('shape', 'rect');
         s.setAttribute('placeholder', i === 9 ? 'Drop a photo here' : 'Drop a photo');
+        s.setAttribute('editable', '');
         park.appendChild(s);
       }
     }

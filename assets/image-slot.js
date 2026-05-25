@@ -224,7 +224,7 @@
 
   class ImageSlot extends HTMLElement {
     static get observedAttributes() {
-      return ['shape', 'radius', 'mask', 'fit', 'position', 'placeholder', 'src', 'id'];
+      return ['shape', 'radius', 'mask', 'fit', 'position', 'placeholder', 'src', 'id', 'editable'];
     }
 
     constructor() {
@@ -591,7 +591,8 @@
       this._ring.style.display = mask ? 'none' : '';
 
       // Controls and reframe entry gate on this so share links stay read-only.
-      const editable = !!(window.omelette && window.omelette.writeFile);
+      // The `editable` HTML attribute forces edit mode (e.g. on static hosting without omelette).
+      const editable = !!(window.omelette && window.omelette.writeFile) || this.hasAttribute('editable');
       this.toggleAttribute('data-editable', editable);
       this._sub.style.display = editable ? '' : 'none';
 
