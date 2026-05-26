@@ -7,7 +7,7 @@
 
 (function () {
   const VIDEO_LS_PREFIX = 'project-video-';
-  const STATE_FILE = '.image-slots.state.json';
+  const STATE_FILE = 'image-slots.state.json';
 
   // ---------- sidecar cache ----------
   // Fetch independently so thumbnail previews don't depend on shadow-DOM timing.
