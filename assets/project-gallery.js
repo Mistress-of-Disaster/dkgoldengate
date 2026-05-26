@@ -226,7 +226,25 @@
     if (!m) return;
 
     parkOtherSlots(m);
-    stage.innerHTML = '';
+
+    // ── Safe clear: rescue any image-slot living in stage before wiping ──
+    // stage.innerHTML = '' would destroy a slot that was already moved here,
+    // making getElementById return null on the very next line.
+    Array.from(stage.children).forEach(child => {
+      if (child.tagName && child.tagName.toLowerCase() === 'image-slot') {
+        const mc = currentMedia.find(c => c.slotId === child.id);
+        if (mc && mc.home) {
+          child.style.removeProperty('width');
+          child.style.removeProperty('height');
+          child.style.removeProperty('aspect-ratio');
+          mc.home.appendChild(child); // park it safely before clearing
+        }
+      } else {
+        child.remove();
+      }
+    });
+    // Now safe to clear any leftover non-slot nodes
+    Array.from(stage.children).forEach(child => child.remove());
 
     if (m.kind === 'image') {
       moveSlotToStage(m.slotId);
@@ -257,7 +275,11 @@
         editBtn.type      = 'button';
         editBtn.className = 'pgm-video-edit';
         editBtn.textContent = 'Edit video URL';
-        editBtn.addEventListener('click', () => { stage.innerHTML = ''; stage.appendChild(wrap); buildVideoOverlay(m); });
+        editBtn.addEventListener('click', () => {
+          Array.from(stage.children).forEach(c => c.remove());
+          stage.appendChild(wrap);
+          buildVideoOverlay(m);
+        });
         wrap.appendChild(editBtn);
 
         // "Drop an image instead" — show image-slot drop zone above the bar
@@ -266,7 +288,7 @@
         imgBtn.className = 'pgm-video-edit pgm-video-edit-left';
         imgBtn.textContent = '+ Drop an image';
         imgBtn.addEventListener('click', () => {
-          stage.innerHTML = '';
+          Array.from(stage.children).forEach(c => c.remove());
           moveSlotToStage(m.slotId);
           stage.appendChild(buildVideoBar(m));
         });
