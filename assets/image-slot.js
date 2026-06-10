@@ -142,7 +142,7 @@
   // (retina) and at MAX_DIM. WebP keeps alpha and is ~10× smaller than PNG
   // for photos, so there's no need for per-image format picking.
   async function toDataUrl(file, targetW) {
-    const bitmap = await createImageBitmap(file);
+    const bitmap = await createImageBitmap(file, { colorSpaceConversion: 'none' });
     try {
       const cap = Math.min(MAX_DIM, Math.max(1, Math.round(targetW * 2)) || MAX_DIM);
       const scale = Math.min(1, cap / Math.max(bitmap.width, bitmap.height));
@@ -150,7 +150,7 @@
       const h = Math.max(1, Math.round(bitmap.height * scale));
       const canvas = document.createElement('canvas');
       canvas.width = w; canvas.height = h;
-      canvas.getContext('2d').drawImage(bitmap, 0, 0, w, h);
+      canvas.getContext('2d', { colorSpace: 'srgb' }).drawImage(bitmap, 0, 0, w, h);
       return canvas.toDataURL('image/webp', 0.85);
     } finally {
       bitmap.close && bitmap.close();

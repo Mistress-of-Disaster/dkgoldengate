@@ -1081,3 +1081,20 @@ button { font-family: inherit; cursor: pointer; }
   .hero-contact { grid-template-columns: 1fr; }
   .hero-contact-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
 }
+
+/* ---------- Google Calendar scheduling button overrides ---------- */
+.gcal-btn-wrap {
+  display: inline-flex;
+}
+.gcal-btn-wrap button,
+.gcal-btn-wrap a[role="button"] {
+  font-family: var(--font-sans) !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  border-radius: var(--radius-md) !important;
+  height: 48px !important;
+  padding: 0 22px !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, var(--shadow-sm) !important;
+}
